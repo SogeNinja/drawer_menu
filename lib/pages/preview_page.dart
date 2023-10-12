@@ -20,7 +20,7 @@ class PreviewPage extends StatelessWidget {
           child: SingleChildScrollView(
             child: Consumer<ProfileCollection>(
               builder: (context, value, child) {
-                var profile = value.selectedProfile;
+                var profile = value.selectedProfile!;
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

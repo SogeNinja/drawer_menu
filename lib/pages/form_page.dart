@@ -142,7 +142,6 @@ class _FormPageState extends State<FormPage> {
                       else if(!RegExp(r'^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$').hasMatch(value)){
                         return "Por favor ingrese un numero válido";
                       }
-
                       return null;
                     },
                     decoration: const InputDecoration(

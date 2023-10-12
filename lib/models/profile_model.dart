@@ -17,8 +17,8 @@ class ProfileModel{
 }
 
 class ProfileCollection extends ChangeNotifier{
-  late ProfileModel _selectedProfile;
-  ProfileModel get selectedProfile => _selectedProfile;
+  ProfileModel? _selectedProfile;
+  ProfileModel? get selectedProfile => _selectedProfile;
 
   void setSelectedProfile(ProfileModel selectedProfile){
     _selectedProfile = selectedProfile;

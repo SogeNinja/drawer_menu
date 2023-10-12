@@ -1,5 +1,7 @@
+import 'package:drawer_menu/models/profile_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({ super.key });
@@ -42,19 +44,22 @@ class HomePage extends StatelessWidget {
               leading: const Icon(Icons.account_circle),
               title: const Text('Perfil'),
               onTap: () {
-                
-              },
-            ),
-            ListTile(
-              title: const Text('Opción 2'),
-              onTap: () {
-                // on tap do...
-              },
-            ),
-            ListTile(
-              title: const Text('Opción 3'),
-              onTap: () {
-                // on tap do...
+                if(Provider.of<ProfileCollection>(context, listen: false).selectedProfile != null){
+                  context.go("/profile");
+                }else{
+                  Navigator.of(context).pop();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: const Text('Primero debe crear un perfil'),
+                      action: SnackBarAction(
+                        label: 'Ir',
+                        onPressed: () {
+                          context.go("/form");
+                        },
+                      ),
+                    )
+                  );
+                }
               },
             ),
           ],
